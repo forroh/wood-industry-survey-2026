@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 2분기 목재산업 동향조사</title>
+<style>
+  :root{
+    --navy:#1F3A5F; --navy2:#2C5282; --line:#d7dee7; --line2:#e8edf3;
+    --bg:#f4f6f9; --ok:#2f855a; --warn:#c53030; --muted:#5a6675;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:#1a2330;
+    font-family:-apple-system,"Malgun Gothic","맑은 고딕",AppleSDGothicNeo,sans-serif;
+    line-height:1.55;font-size:15px;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 16px 80px;}
+  header.top{background:var(--navy);color:#fff;padding:26px 16px;text-align:center;}
+  header.top h1{margin:0;font-size:22px;letter-spacing:-.5px;}
+  header.top p{margin:6px 0 0;opacity:.85;font-size:13px;}
+  .intro{background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:18px 20px;margin:22px 0;font-size:13px;color:var(--muted);}
+  .intro b{color:#1a2330;}
+  .agency{margin-top:10px;font-size:12.5px;color:var(--muted);}
+  section.card{background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:22px 22px 24px;margin:18px 0;box-shadow:0 1px 3px rgba(20,40,70,.05);}
+  .sec-title{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;
+    color:var(--navy);margin:0 0 4px;padding-bottom:12px;border-bottom:2px solid var(--navy);}
+  .sec-title .rn{background:var(--navy);color:#fff;border-radius:6px;font-size:12px;
+    padding:2px 8px;font-weight:600;letter-spacing:.5px;}
+  .q{font-weight:700;margin:18px 0 6px;font-size:14.5px;}
+  .q .num{color:var(--navy2);}
+  .hint{font-size:12.5px;color:var(--muted);margin:2px 0 12px;
+    background:#f7f9fc;border-left:3px solid var(--line);padding:8px 12px;border-radius:0 6px 6px 0;}
+  .field{margin:12px 0;}
+  label.fl{display:block;font-weight:600;font-size:13px;margin-bottom:5px;}
+  input[type=text],input[type=tel],textarea,select{
+    width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;
+    font-size:14px;font-family:inherit;background:#fff;}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--navy2);
+    box-shadow:0 0 0 3px rgba(44,82,130,.12);}
+  textarea{resize:vertical;min-height:80px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr;}}
+  .items-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px;}
+  @media(max-width:720px){.items-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:440px){.items-grid{grid-template-columns:1fr;}}
+  .chk{display:flex;align-items:center;gap:8px;border:1px solid var(--line);
+    border-radius:8px;padding:9px 11px;cursor:pointer;font-size:13.5px;background:#fff;
+    transition:.12s;}
+  .chk:hover{border-color:var(--navy2);background:#f7faff;}
+  .chk input{width:17px;height:17px;accent-color:var(--navy);flex:none;}
+  .chk.on{border-color:var(--navy);background:#eef4ff;font-weight:600;}
+  .etc-inline{display:flex;align-items:center;gap:6px;}
+  .etc-inline input[type=text]{padding:6px 8px;}
+  .item-block{border:1px solid var(--line);border-radius:10px;margin:14px 0;overflow:hidden;}
+  .item-head{background:var(--navy);color:#fff;padding:10px 14px;font-weight:700;font-size:14px;}
+  .item-body{padding:14px 16px;}
+  .rowset{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;
+    padding:9px 0;border-bottom:1px dashed var(--line2);}
+  .rowset:last-child{border-bottom:none;}
+  .rowset .cat{font-weight:600;font-size:13.5px;color:#2b3648;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .opt{position:relative;}
+  .opt input{position:absolute;opacity:0;width:0;height:0;}
+  .opt span{display:inline-block;border:1px solid var(--line);border-radius:20px;
+    padding:6px 15px;font-size:13px;cursor:pointer;background:#fff;transition:.12s;}
+  .opt input:checked+span{background:var(--navy);color:#fff;border-color:var(--navy);font-weight:600;}
+  .opt:hover span{border-color:var(--navy2);}
+  @media(max-width:560px){.rowset{grid-template-columns:1fr;gap:6px;}}
+  .aero-cat{margin:10px 0 4px;font-size:12.5px;font-weight:700;color:var(--navy2);
+    letter-spacing:.5px;}
+  .aero-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+  @media(max-width:560px){.aero-grid{grid-template-columns:1fr;}}
+  .aero-grid .chk{padding:7px 10px;font-size:13px;}
+  table.q4{width:100%;border-collapse:collapse;margin-top:8px;}
+  table.q4 th,table.q4 td{border:1px solid var(--line);padding:8px;font-size:13px;text-align:center;}
+  table.q4 th{background:var(--navy);color:#fff;font-weight:600;}
+  table.q4 td input{border:none;background:transparent;padding:4px;}
+  table.q4 td input:focus{box-shadow:none;}
+  table.q5{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px;}
+  table.q5 th,table.q5 td{border:1px solid var(--line);padding:8px 6px;text-align:center;vertical-align:middle;}
+  table.q5 th{background:var(--navy);color:#fff;font-weight:600;font-size:12px;}
+  table.q5 td:first-child{font-weight:600;text-align:left;background:#f7f9fc;}
+  table.q5 input{accent-color:var(--navy);width:18px;height:18px;}
+  .empty-note{color:var(--muted);font-size:13px;background:#fff8e6;border:1px dashed #e0c060;
+    border-radius:8px;padding:12px 14px;}
+  .reward-opt{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13.5px;}
+  .actions{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(244,246,249,0),var(--bg) 40%);
+    padding:18px 0 6px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  button{font-family:inherit;font-size:15px;font-weight:700;border:none;border-radius:10px;
+    padding:13px 30px;cursor:pointer;transition:.15s;}
+  .btn-primary{background:var(--navy);color:#fff;}
+  .btn-primary:hover{background:#16304f;}
+  .btn-primary:disabled{opacity:.5;cursor:not-allowed;}
+  .btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--navy);}
+  .req{color:var(--warn);}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(120px);
+    background:#1a2330;color:#fff;padding:14px 22px;border-radius:10px;font-size:14px;
+    box-shadow:0 8px 24px rgba(0,0,0,.25);transition:.3s;z-index:99;max-width:90%;text-align:center;}
+  .toast.show{transform:translateX(-50%) translateY(0);}
+  .toast.ok{background:var(--ok);} .toast.err{background:var(--warn);}
+  .done-screen{display:none;text-align:center;padding:60px 20px;}
+  .done-screen .mark{font-size:56px;color:var(--ok);}
+  .done-screen h2{color:var(--navy);}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>2026년 2분기 목재산업 동향조사</h1>
+  <p>한국목재공업협동조합 · 조사기준: 2026년 2분기(4월~6월)</p>
+</header>
+
+<div class="wrap">
+  <div class="intro">
+    안녕하십니까, <b>한국목재공업협동조합</b>입니다. 본 조사는 한국임업진흥원이 주관하는 「2026년 목재산업 동향조사」로,
+    2026년 2분기(4월~6월)를 기준으로 목재산업의 현황 및 경영 애로사항을 파악하기 위한 것입니다.
+    응답 내용은 <b>통계법 제33조</b>에 따라 비밀이 보장되며 통계·정책 기초자료 외 용도로 사용되지 않습니다.
+    <div class="agency">▣ 총괄기관 : 산림청 목재산업과 &nbsp;·&nbsp; ▣ 주관기관 : 한국임업진흥원 목재산업실 &nbsp;·&nbsp; ▣ 조사기관 : 한국목재공업협동조합 (☎ 02-783-0657)</div>
+  </div>
+
+  <form id="surveyForm" autocomplete="off">
+
+  <!-- I. 업체 정보 -->
+  <section class="card">
+    <div class="sec-title"><span class="rn">I</span> 응답업체 정보</div>
+    <div class="grid3">
+      <div class="field">
+        <label class="fl">업체명 <span class="req">*</span></label>
+        <input type="text" id="company" required>
+      </div>
+      <div class="field">
+        <label class="fl">응답자명 <span class="req">*</span></label>
+        <input type="text" id="respondent" required>
+      </div>
+      <div class="field">
+        <label class="fl">대표번호</label>
+        <input type="tel" id="phone" placeholder="예) 02-000-0000">
+      </div>
+    </div>
+  </section>
+
+  <!-- II. 취급 품목 -->
+  <section class="card">
+    <div class="sec-title"><span class="rn">II</span> 취급 품목 관련</div>
+    <div class="q"><span class="num">1.</span> 귀사의 <b>주요 취급 품목</b>을 아래 보기에서 모두 선택하여 주십시오. <span class="req">*</span></div>
+    <div class="hint">선택한 품목에 대해서만 아래 3번·4번(체감경기·애로사항) 문항이 나타나며, <b>품목별로 각각 응답</b>하실 수 있습니다.</div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </section>
+
+  <!-- III. 체감 경기 -->
+  <section class="card">
+    <div class="sec-title"><span class="rn">III</span> 체감 경기 현황 관련</div>
+    <div class="q"><span class="num">2.</span> 1번에서 선택하신 취급 품목에 대해서만 <b>2026년 1분기 대비 2026년 2분기 현황</b>을 비교하여 응답해 주십시오.</div>
+    <div class="hint">각 품목별로 원자재구입·설비가동률·매출·재고·인력고용·종합경기를 선택해 주십시오.</div>
+    <div id="q2Container"></div>
+    <div class="empty-note" id="q2Empty">먼저 <b>1번</b>에서 취급 품목을 선택해 주세요.</div>
+  </section>
+
+  <!-- IV. 경영 애로사항 -->
+  <section class="card">
+    <div class="sec-title"><span class="rn">IV</span> 경영 애로사항 관련</div>
+    <div class="q"><span class="num">3.</span> 1번에서 선택하신 취급 품목에 대해서만 <b>2026년 2분기 경영 애로사항 및 문제점</b>을 응답해 주십시오. (해당 항목에 모두 체크)</div>
+    <div id="q3Container"></div>
+    <div class="empty-note" id="q3Empty">먼저 <b>1번</b>에서 취급 품목을 선택해 주세요.</div>
+
+    <div class="q" style="margin-top:26px;"><span class="num">4.</span> 3번에서 체크하신 애로사항 중 경영에 미치는 영향이 가장 크거나 해결이 시급한 항목을 <b>최대 3가지</b> 선택해, 간략한 이유를 기재해 주십시오.</div>
+    <table class="q4">
+      <thead><tr><th style="width:80px">우선순위</th><th style="width:220px">애로사항 번호</th><th>간략한 이유 또는 내용</th></tr></thead>
+      <tbody>
+        <tr><td>1순위</td><td><input type="text" id="p1num" placeholder="예) ②, ⑧"></td><td><input type="text" id="p1reason"></td></tr>
+        <tr><td>2순위</td><td><input type="text" id="p2num"></td><td><input type="text" id="p2reason"></td></tr>
+        <tr><td>3순위</td><td><input type="text" id="p3num"></td><td><input type="text" id="p3reason"></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- V. 건의사항 및 제도 -->
+  <section class="card">
+    <div class="sec-title"><span class="rn">V</span> 건의사항 및 제도 관련</div>
+    <div class="q"><span class="num">5.</span> 다음 목재관련 제도에 대해 귀사의 활용여부 및 계획을 답변해 주십시오.</div>
+    <div style="overflow-x:auto;">
+    <table class="q5">
+      <thead><tr>
+        <th style="min-width:150px">제도명</th>
+        <th>알고 있으며<br>활용 중</th>
+        <th>알고 있으나<br>활용 안 함</th>
+        <th>본 설문으로<br>처음 알았고<br>활용 경험 없음</th>
+        <th>활용 계획 있음<br>/ 고려 중</th>
+        <th>활용 의사·<br>필요성 없음</th>
+      </tr></thead>
+      <tbody id="q5body"></tbody>
+    </table>
+    </div>
+
+    <div class="q" style="margin-top:22px;"><span class="num">6.</span> 산림청 및 한국임업진흥원에 건의사항이 있으신 경우 자유롭게 기술하여 주십시오.</div>
+    <textarea id="suggestion" placeholder="건의사항을 입력해 주세요."></textarea>
+
+    <div class="q" style="margin-top:22px;">답례품(모바일 상품권) 지급 정보</div>
+    <div class="hint">답례품 지급 및 추가 질의 목적으로만 사용되며 다른 목적으로는 사용되지 않습니다.</div>
+    <div class="grid3">
+      <div class="field"><label class="fl">응답자 성함</label><input type="text" id="rewardName"></div>
+      <div class="field"><label class="fl">핸드폰번호</label><input type="tel" id="rewardPhone" placeholder="예) 010-0000-0000"></div>
+    </div>
+    <label class="reward-opt"><input type="checkbox" id="rewardNone" style="width:17px;height:17px;accent-color:var(--navy);"> 답례품 필요 없음</label>
+  </section>
+
+  <div class="actions">
+    <button type="button" class="btn-ghost" id="tempSaveBtn">임시저장</button>
+    <button type="submit" class="btn-primary" id="submitBtn">설문 제출</button>
+  </div>
+  </form>
+
+  <div class="done-screen" id="doneScreen">
+    <div class="mark">✓</div>
+    <h2>설문이 정상적으로 제출되었습니다</h2>
+    <p style="color:var(--muted)">소중한 응답에 감사드립니다. 창을 닫으셔도 됩니다.</p>
+    <button type="button" class="btn-ghost" onclick="location.reload()">새 설문 작성</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== 설정 ===================== */
+/* 아래 URL을 Google Apps Script 웹앱 배포 URL로 교체하세요. (설정방법.md 참고) */
+const ENDPOINT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+/* ================================================ */
+
+const ITEMS = [
+  "제재목","방부목재","난연목재","목재플라스틱복합재","집성재","합판","파티클보드","섬유판",
+  "목질바닥재","목재펠릿","목재칩(펄프용)","목재칩(보드용)","목재칩(연료용)","성형숯","숯","원목"
+];
+const CIRCLED = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫","⑬","⑭","⑮","⑯","⑰","⑱","⑲","⑳","㉑"];
+
+const Q2_METRICS = [
+  {key:"원자재구입", opts:["증가","동일","감소"]},
+  {key:"설비가동률(생산)", opts:["증가","동일","감소"]},
+  {key:"매출(판매)", opts:["증가","동일","감소"]},
+  {key:"재고", opts:["증가","동일","감소"]},
+  {key:"인력고용", opts:["증가","동일","감소"]},
+  {key:"종합경기", opts:["좋음","동일","나쁨"]}
+];
+
+const Q3_GROUPS = [
+  {cat:"자재 수급", items:[
+    "국산 원자재(원재료)구득난","국산 원자재(원재료)가격 상승","국내 물류비상승 및 운송난",
+    "수입 원자재(원재료)구득난","수입 원자재(원재료)가격 변동","해상 운임비 상승","부자재 구득난"]},
+  {cat:"매출", items:[
+    "내수부진","건설 경기 불황","제품(판매)단가하락","계절적 비수기","업체간 과당경쟁","수출부진"]},
+  {cat:"기업 운영", items:[
+    "고금리","환율변동","자금조달 곤란","판매대금 회수 지연","설비노후 및 부족","기술경쟁력 약화","인건비 상승"]},
+  {cat:"기타", items:["인력확보난"]}
+];
+const AERO_FLAT = [];
+Q3_GROUPS.forEach(g=>g.items.forEach(it=>AERO_FLAT.push(it)));
+
+const Q5_SYSTEMS = ["목재제품 탄소저장량 표시 제도","국산목재 이력확인 제도"];
+const Q5_OPTS = ["활용중","알지만활용안함","처음알았음","활용계획있음","필요없음"];
+
+const $ = s=>document.querySelector(s);
+const itemsGrid = $("#itemsGrid");
+const q2C = $("#q2Container"), q3C = $("#q3Container");
+
+/* Q1 품목 체크박스 */
+ITEMS.forEach((name,i)=>{
+  const id="item_"+i;
+  const el=document.createElement("label");
+  el.className="chk"; el.dataset.idx=i;
+  el.innerHTML='<input type="checkbox" value="'+name+'" id="'+id+'"> <span>'+CIRCLED[i]+' '+name+'</span>';
+  itemsGrid.appendChild(el);
+});
+const etcWrap=document.createElement("label");
+etcWrap.className="chk etc-inline"; etcWrap.style.gridColumn="1 / -1";
+etcWrap.innerHTML='<input type="checkbox" id="item_etc"> <span>⑰ 기타</span>'+
+  '<input type="text" id="item_etc_text" placeholder="품목명 입력" style="max-width:260px;margin-left:6px;">';
+itemsGrid.appendChild(etcWrap);
+
+itemsGrid.addEventListener("change", renderPerItem);
+$("#item_etc_text").addEventListener("input", ()=>{
+  if($("#item_etc_text").value.trim() && !$("#item_etc").checked){$("#item_etc").checked=true;}
+  renderPerItem();
+});
+
+function selectedItems(){
+  const arr=[];
+  ITEMS.forEach((name,i)=>{ if($("#item_"+i).checked) arr.push({name:name, circ:CIRCLED[i]}); });
+  if($("#item_etc").checked){
+    const t=$("#item_etc_text").value.trim();
+    arr.push({name: t?("기타("+t+")"):"기타", circ:CIRCLED[16]});
+  }
+  return arr;
+}
+function slug(s){return s.replace(/[^a-zA-Z0-9가-힣]/g,"_");}
+
+function renderPerItem(){
+  document.querySelectorAll("#itemsGrid .chk").forEach(el=>{
+    const cb=el.querySelector("input[type=checkbox]");
+    el.classList.toggle("on", cb && cb.checked);
+  });
+  const items=selectedItems();
+  const prev = collectResponses(true);
+
+  q2C.innerHTML=""; q3C.innerHTML="";
+  $("#q2Empty").style.display = items.length? "none":"block";
+  $("#q3Empty").style.display = items.length? "none":"block";
+
+  items.forEach(item=>{
+    const sg=slug(item.name);
+    const b=document.createElement("div"); b.className="item-block";
+    let rows="";
+    Q2_METRICS.forEach(m=>{
+      const mg=slug(m.key);
+      let opts="";
+      m.opts.forEach((o,oi)=>{
+        const nm="q2_"+sg+"_"+mg;
+        const checked = prev.q2 && prev.q2[item.name] && prev.q2[item.name][m.key]===o ? "checked":"";
+        opts+='<label class="opt"><input type="radio" name="'+nm+'" value="'+o+'" '+checked+'><span>'+CIRCLED[oi]+' '+o+'</span></label>';
+      });
+      rows+='<div class="rowset"><div class="cat">'+m.key+'</div><div class="opts">'+opts+'</div></div>';
+    });
+    b.innerHTML='<div class="item-head">'+item.circ+' '+item.name+'</div><div class="item-body">'+rows+'</div>';
+    q2C.appendChild(b);
+
+    const b3=document.createElement("div"); b3.className="item-block";
+    let body="";
+    Q3_GROUPS.forEach(g=>{
+      body+='<div class="aero-cat">'+g.cat+'</div><div class="aero-grid">';
+      g.items.forEach(it=>{
+        const gi=AERO_FLAT.indexOf(it);
+        const nm="q3_"+sg;
+        const wasChecked = prev.q3 && prev.q3[item.name] && prev.q3[item.name].indexOf(it)>-1 ? "checked":"";
+        const isLabor = it==="인력확보난";
+        body+='<label class="chk"><input type="checkbox" name="'+nm+'" value="'+it+'" '+wasChecked+'>'+
+          '<span>'+CIRCLED[gi]+' '+it+(isLabor?' <input type="text" class="labor-etc" data-item="'+item.name+'" placeholder="(내용)" style="max-width:120px;padding:3px 6px;margin-left:4px;">':'')+'</span></label>';
+      });
+      body+='</div>';
+    });
+    b3.innerHTML='<div class="item-head">'+item.circ+' '+item.name+'</div><div class="item-body">'+body+'</div>';
+    q3C.appendChild(b3);
+  });
+
+  q3C.querySelectorAll(".chk input[type=checkbox]").forEach(cb=>{
+    const upd=()=>cb.closest(".chk").classList.toggle("on",cb.checked);
+    upd(); cb.addEventListener("change",upd);
+  });
+  if(prev.q3etc){
+    q3C.querySelectorAll(".labor-etc").forEach(inp=>{
+      if(prev.q3etc[inp.dataset.item]) inp.value=prev.q3etc[inp.dataset.item];
+    });
+  }
+}
+
+const q5body=$("#q5body");
+Q5_SYSTEMS.forEach((sys,si)=>{
+  let tds="<td>"+sys+"</td>";
+  Q5_OPTS.forEach(o=>{ tds+='<td><input type="radio" name="q5_'+si+'" value="'+o+'"></td>'; });
+  const tr=document.createElement("tr"); tr.innerHTML=tds; q5body.appendChild(tr);
+});
+
+function collectResponses(silent){
+  const items=selectedItems();
+  const q2={}, q3={}, q3etc={};
+  items.forEach(item=>{
+    const sg=slug(item.name);
+    const m={};
+    Q2_METRICS.forEach(metric=>{
+      const sel=document.querySelector('input[name="q2_'+sg+'_'+slug(metric.key)+'"]:checked');
+      if(sel) m[metric.key]=sel.value;
+    });
+    if(Object.keys(m).length) q2[item.name]=m;
+    const checks=[].slice.call(document.querySelectorAll('input[name="q3_'+sg+'"]:checked')).map(c=>c.value);
+    if(checks.length) q3[item.name]=checks;
+  });
+  document.querySelectorAll(".labor-etc").forEach(inp=>{
+    if(inp.value.trim()) q3etc[inp.dataset.item]=inp.value.trim();
+  });
+
+  const q5={};
+  Q5_SYSTEMS.forEach((sys,si)=>{
+    const sel=document.querySelector('input[name="q5_'+si+'"]:checked');
+    if(sel) q5[sys]=sel.value;
+  });
+
+  return {
+    company:$("#company").value.trim(),
+    respondent:$("#respondent").value.trim(),
+    phone:$("#phone").value.trim(),
+    items: items.map(i=>i.name),
+    q2:q2, q3:q3, q3etc:q3etc,
+    q4:[
+      {priority:"1순위", num:$("#p1num").value.trim(), reason:$("#p1reason").value.trim()},
+      {priority:"2순위", num:$("#p2num").value.trim(), reason:$("#p2reason").value.trim()},
+      {priority:"3순위", num:$("#p3num").value.trim(), reason:$("#p3reason").value.trim()}
+    ],
+    q5:q5,
+    suggestion:$("#suggestion").value.trim(),
+    reward:{name:$("#rewardName").value.trim(), phone:$("#rewardPhone").value.trim(), none:$("#rewardNone").checked}
+  };
+}
+
+let toastT;
+function toast(msg,type){
+  const t=$("#toast"); t.textContent=msg; t.className="toast show"+(type?(" "+type):"");
+  clearTimeout(toastT); toastT=setTimeout(()=>t.className="toast",3200);
+}
+
+const LS_KEY="woodsurvey_2026q2_draft";
+// localStorage 안전 접근 (일부 환경에서 차단되어도 제출은 정상 동작)
+var LS={get:function(k){try{return localStorage.getItem(k);}catch(e){return null;}},
+  set:function(k,v){try{localStorage.setItem(k,v);return true;}catch(e){return false;}},
+  del:function(k){try{localStorage.removeItem(k);}catch(e){}}};
+$("#tempSaveBtn").addEventListener("click",()=>{
+  if(LS.set(LS_KEY, JSON.stringify(collectDraft())))
+    toast("임시저장되었습니다. (이 브라우저에 보관)","ok");
+  else toast("이 환경에서는 임시저장을 사용할 수 없습니다.","err");
+});
+function collectDraft(){
+  const d=collectResponses();
+  d._selIdx=[]; ITEMS.forEach((n,i)=>{if($("#item_"+i).checked)d._selIdx.push(i);});
+  d._etc=$("#item_etc").checked; d._etcText=$("#item_etc_text").value;
+  return d;
+}
+function restoreDraft(){
+  const raw=LS.get(LS_KEY); if(!raw)return;
+  if(!confirm("이전에 임시저장한 내용이 있습니다. 불러올까요?"))return;
+  try{
+    const d=JSON.parse(raw);
+    $("#company").value=d.company||""; $("#respondent").value=d.respondent||""; $("#phone").value=d.phone||"";
+    (d._selIdx||[]).forEach(i=>{const c=$("#item_"+i); if(c)c.checked=true;});
+    if(d._etc){$("#item_etc").checked=true; $("#item_etc_text").value=d._etcText||"";}
+    $("#suggestion").value=d.suggestion||"";
+    if(d.q4){["p1","p2","p3"].forEach((p,i)=>{if(d.q4[i]){$("#"+p+"num").value=d.q4[i].num||"";$("#"+p+"reason").value=d.q4[i].reason||"";}});}
+    if(d.reward){$("#rewardName").value=d.reward.name||"";$("#rewardPhone").value=d.reward.phone||"";$("#rewardNone").checked=!!d.reward.none;}
+    renderPerItem();
+    if(d.q2)Object.keys(d.q2).forEach(item=>Object.keys(d.q2[item]).forEach(metric=>{
+      const r=document.querySelector('input[name="q2_'+slug(item)+'_'+slug(metric)+'"][value="'+d.q2[item][metric]+'"]'); if(r)r.checked=true;}));
+    if(d.q3)Object.keys(d.q3).forEach(item=>d.q3[item].forEach(v=>{
+      const c=document.querySelector('input[name="q3_'+slug(item)+'"][value="'+v+'"]'); if(c){c.checked=true;c.closest(".chk").classList.add("on");}}));
+    if(d.q3etc)document.querySelectorAll(".labor-etc").forEach(inp=>{if(d.q3etc[inp.dataset.item])inp.value=d.q3etc[inp.dataset.item];});
+    if(d.q5)Q5_SYSTEMS.forEach((sys,si)=>{if(d.q5[sys]){const r=document.querySelector('input[name="q5_'+si+'"][value="'+d.q5[sys]+'"]');if(r)r.checked=true;}});
+    toast("임시저장 내용을 불러왔습니다.","ok");
+  }catch(e){console.error(e);}
+}
+
+$("#surveyForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const data=collectResponses();
+  if(!data.company){toast("업체명을 입력해 주세요.","err");$("#company").focus();return;}
+  if(!data.respondent){toast("응답자명을 입력해 주세요.","err");$("#respondent").focus();return;}
+  if(data.items.length===0){toast("취급 품목을 1개 이상 선택해 주세요.","err");return;}
+  data.submittedAt=new Date().toISOString();
+
+  const btn=$("#submitBtn"); btn.disabled=true; btn.textContent="제출 중...";
+
+  const finishOk=function(){
+    LS.del(LS_KEY);
+    $("#surveyForm").style.display="none";
+    $("#doneScreen").style.display="block";
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  if(ENDPOINT_URL.indexOf("http")===0){
+    fetch(ENDPOINT_URL,{method:"POST",mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body:JSON.stringify(data)})
+    .then(finishOk)
+    .catch(function(err){
+      console.error(err);
+      downloadJSON(data);
+      toast("전송 실패로 응답을 파일로 저장했습니다. 담당자에게 전달해 주세요.","err");
+      btn.disabled=false; btn.textContent="설문 제출";
+    });
+  }else{
+    downloadJSON(data);
+    toast("서버 URL 미설정: 응답을 파일로 저장했습니다.","err");
+    finishOk();
+  }
+});
+function downloadJSON(data){
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="목재동향조사_"+(data.company||"응답")+"_"+Date.now()+".json";
+  a.click();
+}
+
+renderPerItem();
+window.addEventListener("load",function(){ if(LS.get(LS_KEY)) restoreDraft(); });
+</script>
+</body>
+</html>
